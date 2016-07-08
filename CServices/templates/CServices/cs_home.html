@@ -1,0 +1,49 @@
+{% extends 'CServices/base.html' %}
+
+{% block content %}
+
+<div class="log">
+    <h3>WIP Log</h3>
+    <table>
+        <tr>
+            {% for header in headers %}
+            <th>{{ header }}</th>
+            {% endfor %}
+        </tr>
+        {% for wip in wips %}
+        <tr>
+            <td>{{wip.author}}</td>
+            <td>{{wip.name}}</td>
+            <td>{{wip.bid}}</td>
+            <td>{{wip.length}}</td>
+            <td>{{wip.IR}}</td>
+            <td>{{wip.cost}}</td>
+            <td>{{wip.start}}</td>
+            <td>{{wip.end}}</td>
+            <td>{{wip.c_method}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<div class="log">
+    <h3>Bid Log</h3>
+    <table>
+        <tr>
+            {% for bl_header in bl_headers %}
+            <td>{{ bl_header }}</td>
+            {% endfor %}
+        </tr>
+        {% for bid in bids %}
+        <tr>
+            <td>{{bid.author}}</td>
+            <td>{{bid.name}}</td>
+            <td>{{bid.bid}}</td>
+            <td>{{bid.length}}</td>
+            <td>{{bid.IR}}</td>
+            <td>{{bid.method}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
