@@ -7,9 +7,9 @@ from CServices.models import WipRequest, BidRequest
 
 def cs_home(request):
     wip_requests = WipRequest.objects.all()
-    headers = ['Author', 'Name', 'Bid', 'Length', 'IR', 'Cost', 'Start', 'End', 'Method']
+    headers = ['Author', 'P#', 'Name', 'Size', 'Bid', 'Length', 'IR', 'Cost', 'Start', 'End', 'Method']
     bid_requests = BidRequest.objects.all()
-    bl_headers = ['Author', 'Name', 'Bid', 'Length', 'IR', 'Method']
+    bl_headers = ['Author', 'P#','Name', 'Size', 'Bid', 'Length', 'IR', 'Method']
     return render(request, 'CServices/cs_home.html', {"headers": headers,
                                                       "wips": wip_requests,
                                                       "bl_headers": bl_headers,

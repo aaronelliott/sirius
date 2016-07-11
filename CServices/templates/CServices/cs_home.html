@@ -13,14 +13,16 @@
         {% for wip in wips %}
         <tr>
             <td>{{wip.author}}</td>
+            <td>{{wip.p_num}}</td>
             <td>{{wip.name}}</td>
+            <td>{{wip.size}}</td>
             <td>{{wip.bid}}</td>
             <td>{{wip.length}}</td>
             <td>{{wip.IR}}</td>
             <td>{{wip.cost}}</td>
             <td>{{wip.start}}</td>
             <td>{{wip.end}}</td>
-            <td>{{wip.c_method}}</td>
+            <td>{{wip.method}}</td>
         </tr>
         {% endfor %}
     </table>
@@ -37,7 +39,9 @@
         {% for bid in bids %}
         <tr>
             <td>{{bid.author}}</td>
+            <td>{{bid.p_num}}</td>
             <td>{{bid.name}}</td>
+            <td>{{bid.size}}</td>
             <td>{{bid.bid}}</td>
             <td>{{bid.length}}</td>
             <td>{{bid.IR}}</td>
