@@ -28,7 +28,7 @@
     text-decoration: none;
 }
 
-.log table, td, th {
+.log td, th {
     border: 1px solid black;
     padding-left: 5px;
     padding-right: 5px;
@@ -40,4 +40,9 @@
 
 .form-style p {
     padding-left: 20px;
+}
+
+.wip-req th {
+    text-align: right;
+    border: 0px;
 }

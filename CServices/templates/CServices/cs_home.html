@@ -2,9 +2,9 @@
 
 {% block content %}
 
-<div class="log">
+<div>
     <h3>WIP Log</h3>
-    <table>
+    <table class="log">
         <tr>
             {% for header in headers %}
             <th>{{ header }}</th>
@@ -26,14 +26,13 @@
         </tr>
         {% endfor %}
     </table>
-</div>
-
-<div class="log">
+    </div>
+    <div>
     <h3>Bid Log</h3>
-    <table>
+    <table class="log">
         <tr>
             {% for bl_header in bl_headers %}
-            <td>{{ bl_header }}</td>
+            <th>{{ bl_header }}</th>
             {% endfor %}
         </tr>
         {% for bid in bids %}
@@ -49,5 +48,5 @@
         </tr>
         {% endfor %}
     </table>
-</div>
+    </div>
 {% endblock %}
