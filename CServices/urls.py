@@ -6,5 +6,6 @@ urlpatterns = [
     url(r'^wip_req/$', views.wip_req, name='wip_req'),
     url(r'^bid_req/$', views.bid_req, name='bid-req'),
     url(r'^bid_builder/$', views.bid_builder, name='bid-builder'),
+    url(r'^bid_req_rev/$', views.bid_req_rev, name='bid-req-rev'),
 
 ]

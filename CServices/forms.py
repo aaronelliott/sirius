@@ -1,5 +1,5 @@
 from django import forms
-from .models import WipRequest, BidRequest
+from .models import WipRequest, BidRequest, BidOption
 
 METHODS = (
     ('ROOM', 'room'),
@@ -10,12 +10,22 @@ METHODS = (
 )
 
 
-class cs_bid_req_form(forms.ModelForm):
-
+class BidReqForm(forms.ModelForm):
     class Meta:
         model = BidRequest
         fields = (
-            'p_num', 'name', 'size','bid', 'length', 'IR', 'method'
+            'name', 'p_num',
+        )
+
+
+class BidOptionForm(forms.ModelForm):
+    class Meta:
+        model = BidOption
+        fields = (
+            'size', 'length', 'bid', 'IR', 'method',
+        )
+        exclude = (
+            'bidreq', 'option',
         )
 
 

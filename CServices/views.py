@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.forms.formsets import formset_factory
 
-from .forms import cs_wip_req_form, cs_bid_req_form
+from .forms import cs_wip_req_form, BidReqForm, BidOptionForm
 from CServices.models import WipRequest, BidRequest
 
 
@@ -32,17 +33,19 @@ def wip_req(request):
 
 
 def bid_req(request):
-    if request.method == 'POST':
-        form = cs_bid_req_form(request.POST)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.author = request.user
-            post.save()
-            return HttpResponseRedirect('/')
+    BidReqFormSet = formset_factory(BidOptionForm, extra=5)
+    if request.method == "POST":
+        return render(request, 'CServices/cs_bid_req.html', {})
     else:
-        form = cs_bid_req_form()
+        BidReq = BidReqForm()
+        return render(request, 'CServices/cs_bid_req.html', {'formset': BidReqFormSet,
+                                                             'bidreq': BidReq})
 
-    return render(request, 'CServices/cs_bid_req.html', {'form': form})
+
+
+def bid_req_rev(request):
+    form = dir(request)
+    return render(request, 'CServices/cs_bid_req_review.html', {'form': form})
 
 
 def bid_builder(request):
