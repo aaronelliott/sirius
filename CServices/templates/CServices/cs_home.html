@@ -37,14 +37,9 @@
         </tr>
         {% for bid in bids %}
         <tr>
-            <td>{{bid.author}}</td>
+            <td>{{bid.pk}}</td>
             <td>{{bid.p_num}}</td>
             <td>{{bid.name}}</td>
-            <td>{{bid.size}}</td>
-            <td>{{bid.bid}}</td>
-            <td>{{bid.length}}</td>
-            <td>{{bid.IR}}</td>
-            <td>{{bid.method}}</td>
         </tr>
         {% endfor %}
     </table>

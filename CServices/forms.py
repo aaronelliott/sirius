@@ -25,7 +25,7 @@ class BidOptionForm(forms.ModelForm):
             'size', 'length', 'bid', 'IR', 'method',
         )
         exclude = (
-            'bidreq', 'option',
+            'bidreqticket', 'option',
         )
 
 

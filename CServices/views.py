@@ -10,7 +10,7 @@ def cs_home(request):
     wip_requests = WipRequest.objects.all()
     headers = ['Author', 'P#', 'Name', 'Size', 'Bid', 'Length', 'IR', 'Cost', 'Start', 'End', 'Method']
     bid_requests = BidRequest.objects.all()
-    bl_headers = ['Author', 'P#','Name', 'Size', 'Bid', 'Length', 'IR', 'Method']
+    bl_headers = ['ID', 'P#','Name']
     return render(request, 'CServices/cs_home.html', {"headers": headers,
                                                       "wips": wip_requests,
                                                       "bl_headers": bl_headers,
@@ -20,7 +20,6 @@ def cs_home(request):
 def wip_req(request):
     if request.method == 'POST':
         form = cs_wip_req_form(request.POST)
-        for i in dir(form): print(i)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
@@ -35,11 +34,27 @@ def wip_req(request):
 def bid_req(request):
     BidReqFormSet = formset_factory(BidOptionForm, extra=5)
     if request.method == "POST":
-        return render(request, 'CServices/cs_bid_req.html', {})
+        bidreq = BidReqForm(request.POST)
+        formset = BidReqFormSet(request.POST)
+        if bidreq.is_valid():
+
+            bidreq.save()
+        if formset.is_valid():
+            for form in formset:
+                post = form.save(commit=False)
+                this_bid = BidRequest.objects.get(p_num=request.POST['p_num'])
+                post.bidreqticket = this_bid
+                post.save()
+
+
+        else:
+            return render(request, 'CServices/cs_bid_req.html', {'formset': formset,
+                                                                 'bidreq': bidreq})
+        return HttpResponseRedirect('/')
     else:
-        BidReq = BidReqForm()
+        bidreq = BidReqForm()
         return render(request, 'CServices/cs_bid_req.html', {'formset': BidReqFormSet,
-                                                             'bidreq': BidReq})
+                                                             'bidreq': bidreq})
 
 
 

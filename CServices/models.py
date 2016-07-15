@@ -18,17 +18,17 @@ STATES = (
 
 class BidRequest(models.Model):
     name = models.CharField(max_length=30)
-    p_num = models.IntegerField()
+    p_num = models.IntegerField(unique=True)
 
 
 class BidOption(models.Model):
-    bidreq = models.ForeignKey(BidRequest)
-    option = models.IntegerField()
-    size = models.IntegerField()
-    length = models.IntegerField()
-    bid = models.FloatField()
-    IR = models.IntegerField()
-    method = models.CharField(max_length=10, choices=METHODS)
+    bidreqticket = models.ForeignKey(BidRequest)
+    option = models.IntegerField(null=True)
+    size = models.IntegerField(null=True)
+    length = models.IntegerField(null=True)
+    bid = models.FloatField(null=True)
+    IR = models.IntegerField(null=True)
+    method = models.CharField(max_length=10, choices=METHODS, null=True)
 
 
 class WipRequest(models.Model):
