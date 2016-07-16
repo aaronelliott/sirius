@@ -1,9 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.forms.formsets import formset_factory
 
 from .forms import cs_wip_req_form, BidReqForm, BidOptionForm
-from CServices.models import WipRequest, BidRequest
+from CServices.models import WipRequest, BidRequest, BidOption
 
 
 def cs_home(request):
@@ -65,3 +65,10 @@ def bid_req_rev(request):
 
 def bid_builder(request):
     return render(request, 'CServices/cs_bid_builder.html', {})
+
+
+def bid_detail(request, p_num):
+    bid = get_object_or_404(BidRequest, p_num=p_num)
+    options = BidOption.objects.filter(bidreqticket=bid)
+    return render(request, 'CServices/bid_detail.html', {'bid': bid,
+                                                         'options': options})

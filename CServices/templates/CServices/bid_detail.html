@@ -1,0 +1,41 @@
+{% extends 'CServices/base.html' %}
+
+{% block content %}
+
+<div class="bid-detail">
+    <h2>Bid Request Details</h2>
+    <p>Project Name: {{bid.name}}</p>
+    <p>Project Number: {{bid.p_num}}</p>
+
+    <table class="log">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Size</th>
+                <th>Bid</th>
+                <th>IR</th>
+                <th>Length</th>
+                <th>Method</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for option in options %}
+            {% if option.method %}
+            <tr>
+                <th>Option {{forloop.counter}}</th>
+                <td>{{option.size}}</td>
+                <td>{{option.bid}}</td>
+                <td>{{option.IR}}</td>
+                <td>{{option.length}}</td>
+                <td>{{option.method}}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </tbody>
+
+
+    </table>
+
+</div>
+
+{% endblock %}
