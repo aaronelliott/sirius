@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="022de426-95cb-4b64-ad66-c0e6d28cc761" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CServices/templates/CServices/bid_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CServices/static/css/CServices.css" afterPath="$PROJECT_DIR$/CServices/static/css/CServices.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CServices/templates/CServices/cs_home.html" afterPath="$PROJECT_DIR$/CServices/templates/CServices/cs_home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CServices/urls.py" afterPath="$PROJECT_DIR$/CServices/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CServices/views.py" afterPath="$PROJECT_DIR$/CServices/views.py" />
-    </list>
+    <list default="true" id="022de426-95cb-4b64-ad66-c0e6d28cc761" name="Default" comment="" />
     <ignored path="sirius.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
