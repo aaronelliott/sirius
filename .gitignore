@@ -1,11 +1,4 @@
 db.sqlite3
 *.pyc
 
-CServices/migrations/0006_auto_20160710_1340.py
-*.xml
-CServices/migrations/0006_auto_20160710_1340.py
-CServices/migrations/0006_auto_20160710_1340.py
-CServices/migrations/0006_auto_20160710_1340.py
-CServices/migrations/0006_auto_20160710_1340.py
-CServices/migrations/0008_auto_20160711_1810.py
-*.xml
+*.pyc
