@@ -4,6 +4,7 @@ from django.forms.formsets import formset_factory
 
 from .forms import cs_wip_req_form, BidReqForm, BidOptionForm
 from CServices.models import WipRequest, BidRequest, BidOption
+# from .Bid_Processor import bid_processor
 
 
 def cs_home(request):
@@ -37,7 +38,6 @@ def bid_req(request):
         bidreq = BidReqForm(request.POST)
         formset = BidReqFormSet(request.POST)
         if bidreq.is_valid():
-
             bidreq.save()
         if formset.is_valid():
             for form in formset:
@@ -45,8 +45,6 @@ def bid_req(request):
                 this_bid = BidRequest.objects.get(p_num=request.POST['p_num'])
                 post.bidreqticket = this_bid
                 post.save()
-
-
         else:
             return render(request, 'CServices/cs_bid_req.html', {'formset': formset,
                                                                  'bidreq': bidreq})
@@ -57,14 +55,16 @@ def bid_req(request):
                                                              'bidreq': bidreq})
 
 
-
 def bid_req_rev(request):
     form = dir(request)
     return render(request, 'CServices/cs_bid_req_review.html', {'form': form})
 
 
-def bid_builder(request):
+def bid_builder(request, p_num):
     return render(request, 'CServices/cs_bid_builder.html', {})
+
+def assumptions(request):
+    return render(request, 'CServices/cs_assumptions.html', {})
 
 
 def bid_detail(request, p_num):

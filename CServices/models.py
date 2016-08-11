@@ -28,6 +28,8 @@ class BidOption(models.Model):
     length = models.IntegerField(null=True)
     bid = models.FloatField(null=True)
     IR = models.IntegerField(null=True)
+    OE = models.IntegerField(null=True)
+    OB = models.IntegerField(null=True)
     method = models.CharField(max_length=10, choices=METHODS, null=True)
 
 
@@ -44,3 +46,9 @@ class WipRequest(models.Model):
     end = models.DateField()
     method = models.CharField(max_length=10, choices=METHODS)
 
+
+class Assumptions(models.Model):
+    exchange_rate = models.IntegerField()
+    canadian_interviewing_rate = models.IntegerField()
+    american_interviewing_rate = models.IntegerField()
+    

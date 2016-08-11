@@ -3,6 +3,15 @@
 {% block content %}
 
 <h2>Bid Builder</h2>
-<p>Under Construction -- coming soon.</p>
+<p>Name: {{bid.name}}</p>
 
+<ul>
+{% for i in proc %}
+
+    {% for key, value in i.items %}
+    <li>{{ key }} - {{ value }}</li>
+    {% endfor %}
+
+{% endfor %}
+</ul>
 {% endblock %}

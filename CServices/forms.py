@@ -22,7 +22,7 @@ class BidOptionForm(forms.ModelForm):
     class Meta:
         model = BidOption
         fields = (
-            'size', 'length', 'bid', 'IR', 'method',
+            'size', 'length', 'bid', 'IR', 'OE', 'OB', 'method',
         )
         exclude = (
             'bidreqticket', 'option',
